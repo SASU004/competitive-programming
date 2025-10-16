@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 #define ll long long
+#define loop1(a,n) for(int i = 1; i < n; i++)
+#define loop0(a,n) for(int i = 0; i < n; i++)
+
 
 void solution() {
     int n ;
