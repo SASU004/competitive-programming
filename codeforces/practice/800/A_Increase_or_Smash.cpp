@@ -8,6 +8,15 @@ using namespace std;
 void solution() {
     int n ;
     cin>>n;
+    set <ll>s;
+ 
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        s.insert(x); 
+
+
+}cout << s.size()*2-1<< endl;
 }
 
 int main() {
@@ -15,7 +24,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+     cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
@@ -23,30 +32,11 @@ int main() {
 }
 
 
-/*              obsevations
+/*      observations
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
+*/ 

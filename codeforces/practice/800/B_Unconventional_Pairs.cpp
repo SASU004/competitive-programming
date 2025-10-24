@@ -7,7 +7,18 @@ using namespace std;
 
 void solution() {
     int n ;
+    ll diff = 0;
     cin>>n;
+    vector <ll> a(n);
+    loop(0,n) cin>>a[i];
+    sort (a.begin(), a.end());
+    for(int i = 0; i < n; i+=2){ 
+
+    diff= max(diff, a[i+1] - a[i]);
+
+    }
+    cout << diff<<endl;
+
 }
 
 int main() {
@@ -15,7 +26,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }

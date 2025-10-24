@@ -8,8 +8,15 @@ using namespace std;
 void solution() {
     int n ;
     cin>>n;
-}
 
+      int gcd (int a, int b) {
+      if (b == 0)
+          return a;
+      else
+      return gcd(b, a % b);
+  }
+
+}
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -21,32 +28,3 @@ int main() {
     }
     return 0;
 }
-
-
-/*              obsevations
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/

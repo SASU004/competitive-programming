@@ -6,16 +6,20 @@ using namespace std;
 
 
 void solution() {
-    int n ;
-    cin>>n;
+ int a,b;
+	cin>>a>>b;
+	if (b%2==0) cout<<"0\n";
+	else cout<<a<<'\n';
+
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+     cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
