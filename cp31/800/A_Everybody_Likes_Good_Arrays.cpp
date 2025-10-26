@@ -8,6 +8,17 @@ using namespace std;
 void solution() {
     int n ;
     cin>>n;
+    vector<int>v(n);
+    loop(0,n){
+        cin>>v[i];
+    }int count =0;
+    loop(1,n){
+        if (v[i-1]%2== v[i]%2 ){
+            v[i-1]=v[i-1]*v[i];
+            count ++;
+        }
+        
+    }cout << count <<endl;
 }
 
 int main() {

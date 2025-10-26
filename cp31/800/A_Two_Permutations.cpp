@@ -6,8 +6,12 @@ using namespace std;
 
 
 void solution() {
-    int n ;
-    cin>>n;
+    int n ,a,b;
+    cin>>n>>a>>b;
+    if ( a ==b&a==n ||a + b +2<=n  ) {
+        cout<<"yes"<<endl;
+        
+    }else cout <<"no"<<endl;
 }
 
 int main() {
@@ -26,9 +30,12 @@ int main() {
 /*              obsevations
 
 
+need 
+say 
 
+a a a a a || atleast 2 number to alter for distinct permutations|| b b b b b
 
-
+if mis 1 then no permutation its the same 
 
 
 

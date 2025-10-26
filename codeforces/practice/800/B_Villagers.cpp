@@ -8,6 +8,12 @@ using namespace std;
 void solution() {
     int n ;
     cin>>n;
+    vector<int>v(n);
+    loop(0,n){
+        cin>>v[i];
+    }
+    sort(v.begin(),v.end());
+    cout << v[n-1] + v[n-2] << "\n";
 }
 
 int main() {
@@ -15,7 +21,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+     cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
