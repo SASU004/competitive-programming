@@ -1,26 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define loop(a,n) for(int i = a; i < n; i++)
+#define loop(a,n) for(int i = a; i <=n; i++)
 
 
 
 void solution() {
-    int n ;
-    cin>>n;int temp =n;
-    string s ; cin>> s;
-    if ( n<=0){
-        cout<<0<<endl;
+    int a ,b,c ,d ;
+    cin>>a>>b>>c>>d;
+   
+    int diff= d-b;
+    int count =diff;
+    a+=diff;
+    if (c>a||d<b){
+        cout<<-1<<endl;
         return;
     }
+    else if(a>c) count+= (a-c);
+    cout<<count<<endl;
     
-    for (int i = 1; i <=n ; i++,n--){
-        if (s[i-1]==s[n-1]){
-           break;
-        }
-        else temp-=2;
-    
-    }cout<<temp<<endl;
+        
+
 }
 
 int main() {

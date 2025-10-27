@@ -7,20 +7,10 @@ using namespace std;
 
 void solution() {
     int n ;
-    cin>>n;int temp =n;
-    string s ; cin>> s;
-    if ( n<=0){
-        cout<<0<<endl;
-        return;
-    }
+    cin>>n;
+    vector<int> a(n);
+    loop(0,n) cin>>a[i];
     
-    for (int i = 1; i <=n ; i++,n--){
-        if (s[i-1]==s[n-1]){
-           break;
-        }
-        else temp-=2;
-    
-    }cout<<temp<<endl;
 }
 
 int main() {
