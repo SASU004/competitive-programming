@@ -6,16 +6,20 @@ using namespace std;
 
 
 void solution() {
-    int a ,b,c;
-    cin>>a>>b>>c;
-   if (c%2==1){
-    if (b>a) cout <<"Second"<<endl;
-    else cout <<"First"<<endl;
-   }
-   else {
-    if (a>b)cout <<"First"<<endl;
-     else cout <<"Second"<<endl;
-   }
+    int n,k;
+    cin>>n>>k;
+
+    vector<int> a(n*k);
+    loop(0,a.size()) cin>>a[i];
+
+    int sum =0;
+    for ( int i = 0 ; i <;i+=n){
+        sum+=a[i/2-1];
+
+    }
+    cout <<sum<<endl;
+
+
 }
 
 int main() {

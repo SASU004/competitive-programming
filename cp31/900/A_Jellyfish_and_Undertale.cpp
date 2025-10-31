@@ -6,16 +6,13 @@ using namespace std;
 
 
 void solution() {
-    int a ,b,c;
-    cin>>a>>b>>c;
-   if (c%2==1){
-    if (b>a) cout <<"Second"<<endl;
-    else cout <<"First"<<endl;
-   }
-   else {
-    if (a>b)cout <<"First"<<endl;
-     else cout <<"Second"<<endl;
-   }
+    int a,b,n;
+    cin>>a>>b>>n;
+    vector<int>arr(n);
+    loop(0,n)cin>>arr[i];
+    ll max=b;
+    loop(0,n) max+=min(arr[i],a-1);
+    cout <<max<<endl;
 }
 
 int main() {
@@ -33,9 +30,12 @@ int main() {
 
 /*              obsevations
 
+b is the initial 
 
 
+n's work over ig as soon as input over 
 
+lets move 
 
 
 
