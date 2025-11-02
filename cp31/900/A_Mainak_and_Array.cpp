@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
+
 using namespace std;
+
+
 #define ll long long
 #define loop(a,n) for(int i = a; i < n; i++)
 
@@ -8,15 +11,20 @@ using namespace std;
 void solution() {
     int n;
     cin >> n;
-    vector<int> a(n);
-    loop(0, n) cin >> a[i];
+    vector<int> v(n);
+    loop(0, n) cin >> v[i];
+    long long answer = v[n - 1] - v[0];
 
-    if (n == 1) {
-        cout << 0 << endl;
-        return;
-    }
+    for (int i = 1; i < n; i++)
+        answer = max(answer, (ll)v[i] - v[0]);
 
-    cout << *max_element(a.begin(), a.end()) - *min_element(a.begin(), a.end()) << endl;
+    for (int i = 0; i < n - 1; i++)
+        answer = max(answer, (ll)v[n - 1] - v[i]);
+
+    for (int i = 0; i < n - 1; i++)
+        answer = max(answer, (ll)v[i] - v[i + 1]);
+
+    cout << answer << endl;
 }
 
 
