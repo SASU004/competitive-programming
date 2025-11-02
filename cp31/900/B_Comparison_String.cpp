@@ -8,6 +8,15 @@ using namespace std;
 void solution() {
     int n ;
     cin>>n;
+    string s;
+    cin>> s;
+    int current=1,ans=1;
+    loop(1,n){
+        if (s[i-1]!=s[i]) current =1;
+        else current++;
+        ans=max(current,ans);
+
+}cout <<ans+1<<endl;
 }
 
 int main() {

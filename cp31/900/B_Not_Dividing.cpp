@@ -8,15 +8,20 @@ using namespace std;
 void solution() {
     int n ;
     cin>>n;
-    string s;
-    cin>> s;
-    int current=1,ans=1;
-    loop(1,n){
-        if (s[i-1]!=s[i]) current =1;
-        else current++;
-        ans=max(current,ans);
-
-}cout <<ans+1<<endl;
+    vector <int> a(n);
+    loop(0,n){cin>>a[i];
+        if (a[i]==1)
+        a[i]++;
+    }
+    for ( int i = 0;i<n-1;i++){
+       
+            if (a[i+1]%a[i]==0){
+                a[i+1]++;
+            }
+       
+    }
+    loop(0,n)cout <<a[i]<<" ";
+    cout <<endl;
 }
 
 int main() {
