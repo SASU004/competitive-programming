@@ -2,12 +2,20 @@
 using namespace std;
 #define ll long long
 #define loop(a,n) for(int i = a; i < n; i++)
-#define pb push_back
+
 
 
 void solution() {
     int n ;
     cin>>n;
+    string s; cin>>s ;
+    vector<int> count;
+    loop( 0,n){
+        if ( s[i]=='0')count.push_back(i+1);
+    }
+    cout<<count.size()<<endl;
+    for ( auto i:count )cout << i<<" ";
+    cout <<endl;
 }
 
 int main() {
