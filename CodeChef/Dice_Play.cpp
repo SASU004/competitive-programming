@@ -1,11 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 #define ll long long
+#define loop(a,n) for(int i = a; i < n; i++)
+#define pb push_back
+
 
 void solution() {
-    int n ;
- vector < int > v(n);
+    int a ,b;
+    cin>>a>>b;
+    if ( a==b)cout<< "Yes"<<endl;
+    else cout <<"No"<<endl;
 }
 
 int main() {
@@ -19,3 +23,32 @@ int main() {
     }
     return 0;
 }
+
+
+/*              obsevations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

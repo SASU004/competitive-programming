@@ -1,11 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 #define ll long long
+#define loop(a,n) for(int i = a; i < n; i++)
+#define pb push_back
+
 
 void solution() {
     int n ;
- vector < int > v(n);
+    cin>>n;
+    ll k=n-2;
+    cout << (k*k)/4<<endl;
 }
 
 int main() {
@@ -13,9 +17,38 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
     return 0;
 }
+
+
+/*              obsevations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
