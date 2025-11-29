@@ -6,22 +6,9 @@ using namespace std;
 
 
 void solution() {
-    int n;
-    cin >> n;
-
-    ll sum=0;
-    int nonZero=0;
-
-    for(int i =0; i<n;i++) {
-        ll x;
-        cin>>x;
-        sum += x;
-        if(x>0)nonZero++;
-    }
-
-    ll ans = min({(ll)n, sum-n+1,(ll)nonZero });
-
-    cout << ans << endl;
+    int n;cin>>n;    int y,r;
+    cin>>y>>r;
+    cout << min(n,r+y/2)<<endl;
 }
 
 int main() {
