@@ -4,20 +4,24 @@ using namespace std;
 #define loop(a,n) for(int i = a; i < n; i++)
 #define pb push_back
 
-
 void solution(){
     int n;cin>>n;
-   
     vector<int>a(n);
-    loop(0,n)cin>>a[i];
-    ll reach=a[0];
-    ll ans=1;
-    for(int i=1;i<n&&i<reach;i++){
-        reach=max(reach,(ll)i+a[i]);
-        ans++;
+    for(int i=0;i<n;i++)cin>>a[i]; 
+    ll reach=a[0]-1;
+
+    for(int i=0;i<n;i++){ 
+        if(i>reach)break;
+ 
+        ll newReach=(ll)i+a[i]-1;
+        if(newReach>reach)reach=newReach;
     }
-    cout<<ans;
+    ll fallen=reach+1;
+    if(fallen>n)fallen=n;
+
+    cout<<fallen;
 }
+
 
 
 int main() {
@@ -25,7 +29,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
