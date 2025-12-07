@@ -5,28 +5,21 @@ using namespace std;
 #define pb push_back
 
 
-void solution(){
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
+void solution() {
+    int n,k;
+    cin>>n>>k;
+    vector<ll> a(n),b(n);
 
-    map<char,int> freq;
-    int countDistinct=0;
-    vector<int> distinct(n);
+    loop(0,n)cin>>a[i];
+    loop(0,n)cin>>b[i];
+    ll maxi=0,sum=0,ans=0;
+    for (int i=0;i<min(k,n);i++){
+        sum+=a[i];
+        maxi=max(maxi,b[i]);
+        ans=max(ans,sum+(k-(i+1))*maxi);
 
-    for(int i=0;i<n;i++){
-        freq[s[i]]++;
-        if(freq[s[i]]==1) countDistinct++;
-        distinct[i]=countDistinct;
-    }
-
-    long long ans=0;
-    for(int x:distinct) ans+=x;
-
-    cout<<ans<<endl;
+    }cout<<ans<<endl;
 }
-
 
 int main() {
     ios::sync_with_stdio(false);
