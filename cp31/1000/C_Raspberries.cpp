@@ -37,7 +37,7 @@ void solution() {
     loop(0,n){
         product*=v[i];
     }
-    if (product%k==0)cout <<"0"<<endl;
+    
    
 
 
