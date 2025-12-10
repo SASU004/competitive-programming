@@ -30,8 +30,18 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
+    int n,k;
+    cin>>n>>k;
+    vl v;
+    ll product=1;
+    loop(0,n){
+        product*=v[i];
+    }
+    if (product%k==0)cout <<"0"<<endl;
+   
+
+
+
 }
 
 int main() {
@@ -52,6 +62,7 @@ int main() {
 
 
 
+tryna do with new template :)
 
 
 

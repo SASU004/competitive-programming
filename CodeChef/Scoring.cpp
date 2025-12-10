@@ -30,10 +30,12 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
+   ll x,y;
+   cin>>x>>y;
+    int alice =(x+y)/2;
+    int bob = y-alice ;
+    cout <<alice <<" "<<bob<<endl;
 }
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);

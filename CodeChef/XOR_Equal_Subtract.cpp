@@ -28,11 +28,25 @@ void print_vec(const vector<T> &v){
 }
 
 
-
-void solution() {
-    int n ;
+void solution(){
+    int n; 
     cin>>n;
+    vl a(n);
+    read_vec(a,n);
+    unordered_map<ll,int>mp;
+    int maxfreq=0;
+    int cnt_pow=0;
+    loop(0,n){
+        ll x=a[i];
+        mp[x]++;
+        maxfreq= max(maxfreq,mp[x]);
+
+        if((x&(x-1))==0)cnt_pow++;
+    }
+
+    cout<<max(maxfreq,cnt_pow)<<endl;
 }
+
 
 int main() {
     ios::sync_with_stdio(false);

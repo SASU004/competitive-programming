@@ -32,6 +32,13 @@ void print_vec(const vector<T> &v){
 void solution() {
     int n ;
     cin>>n;
+    vl v(n);
+    read_vec(v,n);
+    ll ans=LLONG_MAX;
+    loop(0,n-1){
+        ans=min(ans,v[i]+v[i+1]);
+
+    }cout<<ans<<endl;
 }
 
 int main() {

@@ -32,6 +32,13 @@ void print_vec(const vector<T> &v){
 void solution() {
     int n ;
     cin>>n;
+    int a =0,b=0;
+    loop(0,n){
+        int x ;cin>>x;
+        if (x==1)b++;
+        else a++;
+
+    }cout <<a+(b+1)/2<<endl;
 }
 
 int main() {
