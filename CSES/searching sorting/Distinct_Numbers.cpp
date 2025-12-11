@@ -49,7 +49,11 @@ void print_vec(const vector<T> &v){
 void solution() {
     int n ;
     cin>>n;
-    
+    sll s;
+    read_set(s,n);
+
+    cout<<s.size()<<endl;
+  
 }
 
 int main() {
@@ -57,7 +61,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
