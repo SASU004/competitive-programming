@@ -47,17 +47,21 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    
+ int m ,n,k;
+ cin>>m>>n>>k;
+char inp[m][n];
+loop(0,m)for(int j=0;j<n;j++)cin>>inp[i][j];
+loop(0,m*k){
+    for(int j=0;j<n*k;j++)cout<<inp[i/k][j/k];
+    cout<<endl;
 }
-
+}
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
