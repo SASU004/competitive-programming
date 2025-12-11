@@ -10,6 +10,9 @@ using namespace std;
 #define pii pair<int,int>
 #define pll pair<long long,long long>
 
+#define vpii vector<pii>
+#define vpll vector<pll>
+
 #define INF 1e18
 #define MOD 1000000007
 

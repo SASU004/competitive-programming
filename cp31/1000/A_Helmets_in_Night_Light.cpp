@@ -10,6 +10,10 @@ using namespace std;
 #define pii pair<int,int>
 #define pll pair<long long,long long>
 
+
+#define vpii vector<pii>
+#define vpll vector<pll>
+
 #define INF 1e18
 #define MOD 1000000007
 
@@ -28,46 +32,55 @@ void print_vec(const vector<T> &v){
 }
 
 
+
 void solution() {
-    int n,k;
-    cin>>n>>k;
-    vl v(n);
-    read_vec(v,n);
-    ll ans=INT_MAX;
-    int ec=0;
+    int n,p;
+    cin>>n>>p;
+    vl a(n),b(n);read_vec(a,n);read_vec(b,n);
+    vpll v(n);
     loop(0,n){
-        if (v[i]%2==0) ec++;
-
-        if (v[i]%k==0)
-            ans = 0;
-
-        ans = min(ans, 1ll * (k - v[i] % k));
+        v[i]={b[i],a[i]};
     }
+    sort(all(v));
 
-    if(k==4){
-        if(ec>=2)
-            ans=min(ans,0ll);
-        else if(ec==1)
-            ans=min(ans,1ll);
-        else if(ec==0)
-            ans=min(ans,2ll);
-    }
+   ll min_cost=p;
+   ll shared=1;
+   for (auto it:v){
 
-    cout<<ans<<endl;
+    ll can_share=it.second;
+    ll share_cost=it.first;
+        if(share_cost>=p) break;
+
+        if(shared+can_share>n){
+             min_cost+=(n-shared)*share_cost;
+            shared=n;
+             break;
+            //  all shared done dusted;
+        }
+        else{
+             min_cost+=can_share*share_cost;
+            shared+=can_share;
+
+        }
+   }
+
+   min_cost+=(n-shared)*p;
+   cout<<min_cost<<endl;
 }
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T;
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
     return 0;
 }
-/* obsevations 
+
+
+/*              obsevations
 
 
 
@@ -75,7 +88,7 @@ int main() {
 
 
 
-tryna do with new template :)
+
 
 
 
