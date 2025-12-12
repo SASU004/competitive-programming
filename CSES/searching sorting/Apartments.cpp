@@ -47,17 +47,33 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
+    ll n;
     cin>>n;
-    
+    ll m,k;
+    cin>>m>>k;
+    vl a(n);read_vec(a,n);
+    vl b(m); read_vec(b,m);
+    ll ans=0;
+    sort(all(a));sort(all(b));
+    ll i=0,j=0;
+    while (i<n&& j<m){
+        if(b[j]<a[i]-k){
+            j++;
+        }
+        else if(b[j]>a[i]+k){
+            i++;
+        }
+        else {ans++;i++;j++;}
+    }
+    cout<<min(m,ans)<<endl;
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    int T = 1;
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
