@@ -49,8 +49,30 @@ void print_vec(const vector<T> &v){
 void solution() {
     ll n,m;
     cin>>n>>m;
-    
-    
+    vl road(100),bessie(100);
+    int pos1=0,pos2=0;
+    loop(0,n){
+        int l,s;
+        cin>>l>>s;
+       
+        for( int j=0;j<l;j++){
+            road[pos1]=s;
+            pos1++;
+        }
+    }  
+     loop(0,m){
+        int l,s;
+        cin>>l>>s;
+       
+        for( int j=0;j<l;j++){
+            bessie[pos2]=s;
+            pos2++;
+        }
+    }
+    ll ans=0;
+    for(int i=0; i<100;i++){ans=max(ans,bessie[i]-road[i]);
+        }    
+        cout<<ans<<endl;
 }
 
 int main() {
@@ -58,7 +80,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
