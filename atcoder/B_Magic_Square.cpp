@@ -47,18 +47,35 @@ void print_vec(const vector<T> &v){
 
 
 
-void solution() {
-    int n ;
+void solution(){
+    ll n;
     cin>>n;
-    
+    vector<vl>a(n,vl(n));
+    ll r=0,c=n/2;
+    for(ll k=1;k<=n*n;k++){
+        a[r][c]=k;
+        ll nr=(r-1+n)%n,nc=(c+1)%n;
+        if(a[nr][nc]) r=(r+1)%n;
+        else{
+            r=nr;
+            c=nc;
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cout<<a[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
