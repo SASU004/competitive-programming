@@ -48,17 +48,41 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    
+    int n,m;
+    cin>>n>>m;
+    vl a(n),b(m);
+    read_vec(a,n);read_vec(b,m);
+    ll i=0,j=0;
+    vl ans;
+    ans.reserve(n+m);
+
+    while(i<n && j<m){
+        if(a[i]<=b[j]){
+            ans.pb(a[i]);
+            i++;
+        }else{
+            ans.pb(b[j]);
+            j++;
+        }
+    }
+    while(i<n){
+        ans.pb(a[i]);
+        i++;
+    }
+    while(j<m){
+        ans.pb(b[j]);
+        j++;
+    }
+    print_vec(ans);
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }

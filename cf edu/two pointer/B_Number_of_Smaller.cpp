@@ -48,17 +48,33 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    
+    int n,m;
+    cin>>n>>m;
+
+    vl a(n),b(m);
+    read_vec(a,n);
+    read_vec(b,m);
+    ll j=0;
+    loop(0,m){
+        while(j<n){
+            if(a[j] < b[i]){
+                j++;
+            }else{
+                break;
+            }
+        }
+        cout<<j<<" ";
+    }
+    cout<<endl;
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
