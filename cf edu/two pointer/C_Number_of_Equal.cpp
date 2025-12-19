@@ -48,9 +48,32 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    
+     int n,m;
+    cin>>n>>m;
+
+    vl a(n),b(m);
+    read_vec(a,n);
+    read_vec(b,m);
+    ll ans =0,i=0,j=0;
+    while(i<n&&j<m){
+        // lost a bit here 
+        if(a[i]<b[j]) i++;
+        else if(a[i]>b[j]) j++;
+         else{
+            ll val=a[i], ca=0, cb=0;
+
+            while(i<n && a[i]==val){
+                ca++;
+                i++;
+            }
+            while(j<m && b[j]==val){
+                cb++;
+                j++;
+            }
+            ans += ca*cb;
+        }
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
@@ -58,7 +81,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
