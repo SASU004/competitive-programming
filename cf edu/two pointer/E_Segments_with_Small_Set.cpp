@@ -46,25 +46,39 @@ void print_vec(const vector<T> &v){
 }
 
 
+int cnt[100001];
+int num;
+void add(int x){
+    cnt[x]++;
+    if(cnt[x]==1)num++;
+}
+void remove (int x ){
+cnt[x]--;
+    if(cnt[x]==0)num--;
+
+}
+ll k ;
+bool good(){
+return num<=k;
+}
+
 
 void solution() {
-    ll n,s;
-    cin>>n>>s;
+    ll n;
+    cin>>n>>k;
     vl a(n);read_vec(a,n);
-
-    ll ans=0;
-    ll r=0,x=0;
     ll l=0;
+    ll res=0;
     loop(0,n){
-        x+=a[i];
-        while(x>=s){
-            x-=a[l];
+        add(a[i]);
+        while(!good()){
+            remove(a[l]);
             l++;
         }
-        ans+=l;
-     }
-        
-    cout<<ans<<endl;
+        res+=i-l+1;
+    } 
+    cout<<res<<endl;
+   
 }
 
 int main() {
@@ -81,6 +95,8 @@ int main() {
 
 
 /*              obsevations
+
+
 
 
 

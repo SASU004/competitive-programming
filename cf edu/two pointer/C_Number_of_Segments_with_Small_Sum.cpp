@@ -48,7 +48,7 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n,s;
+    ll n,s;
     cin>>n>>s;
     vl a(n);read_vec(a,n);
     ll x=0,l=0;

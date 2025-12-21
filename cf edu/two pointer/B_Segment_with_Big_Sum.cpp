@@ -48,11 +48,11 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n,s;
+    ll n,s;
     cin>>n>>s;
     vl a(n);read_vec(a,n);
 
-    ll ans=INT_MAX;
+    ll ans=LLONG_MAX;
     ll r=0,x=0;
     ll l=0;
     loop(0,n){
@@ -64,10 +64,12 @@ void solution() {
         if(x>=s)
         ans=min(ans,i-l+1);
      }
-        if(ans==INT_MAX) ans=0;
-    cout<<ans<<endl;
+        if(ans==LLONG_MAX) {
+            cout<<"-1"<<endl;}
+            else 
+            cout<<ans<<endl;
 }
-
+        
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -84,9 +86,6 @@ int main() {
 /*              obsevations
 
 
-
-ik this will fail in test case cause negetives 
-part of practice tho
 
 
 

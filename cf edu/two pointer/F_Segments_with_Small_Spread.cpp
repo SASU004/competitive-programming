@@ -48,23 +48,9 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    ll n,s;
-    cin>>n>>s;
-    vl a(n);read_vec(a,n);
-
-    ll ans=0;
-    ll r=0,x=0;
-    ll l=0;
-    loop(0,n){
-        x+=a[i];
-        while(x>=s){
-            x-=a[l];
-            l++;
-        }
-        ans+=l;
-     }
-        
-    cout<<ans<<endl;
+    int n ;
+    cin>>n;
+    
 }
 
 int main() {
@@ -72,7 +58,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
@@ -81,6 +67,8 @@ int main() {
 
 
 /*              obsevations
+
+
 
 
 
