@@ -34,6 +34,8 @@ using namespace std;
 
 #define read_vec(v,n) for(int i=0;i<n;i++) cin>>v[i]
 #define read_set(s,n) for(int _i=0,_x; _i<n; _i++){ cin>>_x; s.insert(_x); }
+#define read_mset(ms,n) for(int _i=0,_x; _i<n; _i++){ cin>>_x; ms.insert(_x); }
+
 
 
 #define pqmax priority_queue<ll>
@@ -48,9 +50,19 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    
+    ll n,k ;
+    cin>>n>>k;
+    vl a(n);read_vec(a,n);
+    msll ms;
+    ll ans=0;ll l=0;
+    loop(0,n){
+        ms.insert(a[i]);
+        while(*ms.rbegin()-*ms.begin()>k){
+            ms.erase(ms.find(a[l]));l++;
+        }
+        ans+=i-l+1;
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
@@ -58,7 +70,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
@@ -68,8 +80,9 @@ int main() {
 
 /*              obsevations
 
-
-
+tbh tthe two pointer approach is hella lengthy but good for learning 
+i will first do my own way 
+multiset will be something (nlogn )will pass n=10^5
 
 
 

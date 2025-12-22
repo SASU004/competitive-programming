@@ -34,6 +34,7 @@ using namespace std;
 
 #define read_vec(v,n) for(int i=0;i<n;i++) cin>>v[i]
 #define read_set(s,n) for(int _i=0,_x; _i<n; _i++){ cin>>_x; s.insert(_x); }
+#define read_mset(ms,n) for(int _i=0,_x; _i<n; _i++){ cin>>_x; ms.insert(_x); }
 
 
 #define pqmax priority_queue<ll>
