@@ -49,30 +49,26 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    ll n,k;
-    cin>>n>>k;
-
-    vl a(n);read_vec(a,n);
-    ll l=0,ans=0;
-    ll x=0;
-    ll r=0;
-
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    ll ans=0;
+    ll ones=0;
     loop(0,n){
-        while(r<n&&a[r]-a[l]<=k) r++;
-        // like while its less or = to k they can see so firstly i will move the r till the first >k 
-        if(r<n)ans+=(n-r);
-        l++;
+        if(s[i]=='1')ones++;
+        if(2*ones>i+1)ans++;
     }
     cout<<ans<<endl;
-    
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
@@ -83,6 +79,9 @@ int main() {
 /*              obsevations
 
 
+ones>zeros
+ ones>i-ones 
+ 2*ones>i
 
 
 

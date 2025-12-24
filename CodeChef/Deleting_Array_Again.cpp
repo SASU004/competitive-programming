@@ -48,31 +48,16 @@ void print_vec(const vector<T> &v){
 
 
 
-void solution() {
-    ll n,k;
-    cin>>n>>k;
 
-    vl a(n);read_vec(a,n);
-    ll l=0,ans=0;
-    ll x=0;
-    ll r=0;
 
-    loop(0,n){
-        while(r<n&&a[r]-a[l]<=k) r++;
-        // like while its less or = to k they can see so firstly i will move the r till the first >k 
-        if(r<n)ans+=(n-r);
-        l++;
-    }
-    cout<<ans<<endl;
-    
-}
+
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
@@ -81,8 +66,14 @@ int main() {
 
 
 /*              obsevations
+first approach 
 
-
+came out wrong 
+--------------
+basically minimize cost 
+greedy approach 
+largest a  with smallest c and vice versa 
+------------
 
 
 
