@@ -47,38 +47,24 @@ void print_vec(const vector<T> &v){
 }
 
 
-void solution(){
-    ll n;
-    cin>>n;
-    ll ops=0;
-    while(n!=1){
-        if(n&1){
-            if(n==3){
-                // same as in the easier one 3 shopuld reach 1 directly
-                ops++;
-                break;
-            }
-            else{
-                cout<<-1<<endl;
-                return;
-            }
-        }
-        else{
-            if(n==6){
-                // 6 goes 3 then 1 auto 
-                ops+=2;
-                break;
-            }
-            // here even will always be divisible by 2 right 
-            
-            n/=2;
-            ops++;
-        }
+
+void solution() {
+    ll n,m;
+    cin>>n>>m;
+    if(n==1){
+        // this one is special case 
+        // obv if you dont have nothing to do xor with 
+        // then its itself mod is the ans 
+        cout<<(m+1)%998244353<<endl;
+        return;
     }
-    cout<<ops<<endl;
+    ll p=1;
+    while(p<=m)p<<=1;
+    ll x=p-1;
+    ll ans=2*m-x+1;
+    if(ans<0)ans=0;
+    cout<<ans%998244353<<endl;
 }
-
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -94,19 +80,28 @@ int main() {
 
 /*              obsevations
 
+going to learn xxor rn 
+
+will come back to code this 
 
 
+so fa is a sum of xor of adjacent elements, now i nmeed max of this fa 
+each adjacent xor should be as large as possible.
+
+so ai xor ai+1 = m basically the max possible value of adjacent 
+this i can do ai+1 = aixor m
+means once a1 is fixed, whole array is fixed
 
 
+so now i need all a1 in 0,m which iss <=m
+
+now xor can give a bigger number of m as well
+i assume its a power of 2 which should be the smallest just bigger than m 
+the difference x 
 
 
-
-
-
-
-
-
-
+once pattern is fixed, n >= 2 does not matter anymore
+just need to count valid a1
 
 
 */
