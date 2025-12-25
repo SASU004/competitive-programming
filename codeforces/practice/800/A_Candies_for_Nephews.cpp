@@ -6,8 +6,9 @@ using namespace std;
 
 
 void solution() {
-    int n ;
+    int n;
     cin>>n;
+    cout<<(n%3==0?0:3-n%3)<<endl ;
 }
 
 int main() {
@@ -15,7 +16,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
