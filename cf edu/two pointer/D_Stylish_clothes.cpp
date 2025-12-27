@@ -65,8 +65,8 @@ void solution() {
     int best=INT_MAX;
     while(i<n1 && j<n2 && k<n3 && l<n4){
         int x=a[i],y=b[j],z=c[k],w=d[l];
-        int mn=min(min(x,y),min(z,w));
-        int mx=max(max(x,y),max(z,w));
+        int mn = min({x,y,z,w});
+        int mx=max({x,y,z,w});
         // the max among all currents and the min 
         if(mx-mn<best){
             best=mx-mn;
