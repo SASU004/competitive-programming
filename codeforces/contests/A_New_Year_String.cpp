@@ -51,19 +51,11 @@ void print_vec(const vector<T> &v){
 void solution(){
     int n; cin>>n;
     string s; cin>>s;
-    int opt1=0;
-    for(int i=0; i+3<n;i++) 
-    if(s[i]=='2'&&s[i+1]=='0'&&s[i+2]=='2'&&s[i+3]=='5') opt1++;
-    int opt2=n;
-    for(int i=0;i+3<n;i++){
-        int curr=0;
-        if(s[i]!='2') curr++;
-        if(s[i+1]!='0') curr++;
-        if(s[i+2]!='2') curr++;
-        if(s[i+3]!='6') curr++;
-        opt2=min(opt2,curr);
-    }
-    cout<<min(opt1,opt2)<<endl;
+   if(s.find("2025")!=string::npos){
+   if(s.find("2026")!=string::npos){
+    cout<<0<<endl;return;
+   }else cout<<1<<endl;
+}else cout<<0<<endl;
 }
 
 int main() {
@@ -81,7 +73,7 @@ int main() {
 
 /*              obsevations
 
-
+got to know about s.find
 
 
 
