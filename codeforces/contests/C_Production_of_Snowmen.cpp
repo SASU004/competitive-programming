@@ -51,6 +51,45 @@ void print_vec(const vector<T> &v){
 void solution() {
     int n ;
     cin>>n;
+    vl a(n),b(n),c(n);
+    read_vec(a,n);
+    read_vec(b,n);
+    read_vec(c,n);
+
+    ll ab=0;
+    loop(0,n){
+        // can shift from 0 till last n-1
+        ll shift =i;
+        bool snowman= true ;
+        loop(0,n){
+            int id=i;
+            
+                if(a[id]>=b[(id+shift)%n]){
+                    snowman=false ;break;
+                }
+            
+        }
+        
+        if(snowman)ab++;
+    }
+    // samer as above 
+    ll bc=0;
+    loop(0,n){
+        ll shift =i;
+        bool snowman=true;
+        loop(0,n){
+            ll id=i;
+                if(b[id]>=c[(id+shift)%n]){
+                    snowman=false;break;
+                }
+            
+        }
+        
+        if(snowman)bc++;
+    }
+    
+    ll res= (ll)n*ab*bc;
+    cout<<res<<endl;
     
 }
 
@@ -71,6 +110,14 @@ int main() {
 
 
 
+snowman 1 use a1 b1 c 1 //1 =ijk index 
+
+n use ai+n-1 same b c 
+only valid is a<b<c
+also mod for circular 
+
+now could be done in one loop 
+but ab and bc shift is independent 
 
 
 
