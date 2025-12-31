@@ -48,14 +48,17 @@ void print_vec(const vector<T> &v){
 
 
 
-void solution() {
-    int n ;
-    cin>>n;
-    sll s;
-    read_set(s,n);
-    cout<<s.size()<<endl;
-    
+void solution(){
+    int n,j,k,mx=0;
+     cin>>n>>j>>k;
+     vi a(n+1);
+    for(int i=1;i<=n;i++){
+     cin>>a[i];
+    mx=max(mx,a[i]);
 }
+cout<<(k>1||a[j]==mx?"YES":"NO")<<endl;
+}
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -71,6 +74,12 @@ int main() {
 
 
 /*              obsevations
+
+
+
+
+
+
 
 
 

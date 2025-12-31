@@ -49,12 +49,11 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    sll s;
-    read_set(s,n);
-    cout<<s.size()<<endl;
-    
+    ll a,b;
+    cin>>a>>b;
+    if(100*b>225*a)cout<<"Small"<<endl;
+    else if(225*a>100*b)cout<<"Large"<<endl;
+    else cout<<"Equal"<<endl;
 }
 
 int main() {
@@ -71,6 +70,12 @@ int main() {
 
 
 /*              obsevations
+
+
+
+
+
+
 
 
 

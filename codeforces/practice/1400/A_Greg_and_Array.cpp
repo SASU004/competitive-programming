@@ -51,9 +51,6 @@ void print_vec(const vector<T> &v){
 void solution() {
     int n ;
     cin>>n;
-    sll s;
-    read_set(s,n);
-    cout<<s.size()<<endl;
     
 }
 
@@ -71,6 +68,12 @@ int main() {
 
 
 /*              obsevations
+
+
+
+
+
+
 
 
 

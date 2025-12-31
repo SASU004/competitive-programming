@@ -48,14 +48,19 @@ void print_vec(const vector<T> &v){
 
 
 
-void solution() {
-    int n ;
+void solution(){
+    int n; 
     cin>>n;
-    sll s;
-    read_set(s,n);
-    cout<<s.size()<<endl;
-    
+    vector<string>a(n);
+    read_vec(a,n);
+    string s="";
+    loop(0,n){
+        string x=a[i]+s,y=s+a[i];
+        if(x<y)s=x;else s=y;
+    }
+    cout<<s<<endl;
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -71,6 +76,12 @@ int main() {
 
 
 /*              obsevations
+
+
+
+
+
+
 
 
 
