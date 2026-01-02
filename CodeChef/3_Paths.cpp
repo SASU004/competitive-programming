@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define loop(a,n) for(int i = a; i <= n; i++)
+#define loop(a,n) for(int i = a; i < n; i++)
 #define endl '\n'
 
 #define pb push_back
@@ -48,47 +48,39 @@ void print_vec(const vector<T> &v){
 
 
 
-void solution() {
-    int n,m,k;
-    cin>>n>>m>>k;
-    vl a(n);read_vec(a,n);
-    vpii ops(m+2);
-    vl value(m+2);
-    loop(1,m)cin>>ops[i].first>>ops[i].second>>value[i];
-    
-
-    vl opsc(m+2,0);
-    while(k--){
-        ll x,y;
-        cin>>x>>y;
-        opsc[x]++;
-        opsc[y+1]--;
-    }
-    loop(1,m){
-        opsc[i]+=opsc[i-1];
-    }
-    // main difference array
-    vl diff(n+2,0);
-    loop(1,m){
-        if (opsc[i] == 0) continue;
-        ll l=ops[i].first , r= ops[i].second;
-        diff[l]+=opsc[i]*value[i];
-        diff[r+1]-=opsc[i]*value[i];
-    }
-
-    loop(1,n){
-        diff[i]+=diff[i-1];
-        a[i-1]+=diff[i];
-    }
-    print_vec(a);
+void solution(){
+  int n;cin>>n;
+  if(n==2){
+    cout<<-1<<endl;return;
 }
+
+
+vector<vi> a(n,vi(n,0));
+    a[0][0]=1;a[0][1]=1;a[0][2]=1;
+    a[1][1]=1;a[1][2]=1;
+    a[2][1]=1;a[2][2]=1;
+
+
+
+    for(int k=3;k<n;k++){
+        a[k-1][k-1]=1;
+        a[k-1][k]=1;
+        a[k][k]=1;
+        }
+    loop(0,n){
+    for(int j=0;j<n;j++) 
+        cout<<a[i][j]<<" ";
+        cout<<endl;
+    }   
+}
+ 
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
@@ -97,15 +89,12 @@ int main() {
 
 
 /*              obsevations
-theres use of 2 difference array 
-opscount array helps to count 
-which index how many ops 
 
 
-to find total ops we now aplly the prefix sum 
 
 
-since the template goes till <n i took m+1 to cope 
+
+
 
 
 

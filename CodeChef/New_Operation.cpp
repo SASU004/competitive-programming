@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define loop(a,n) for(int i = a; i <= n; i++)
+#define loop(a,n) for(int i = a; i < n; i++)
 #define endl '\n'
 
 #define pb push_back
@@ -48,47 +48,39 @@ void print_vec(const vector<T> &v){
 
 
 
-void solution() {
-    int n,m,k;
-    cin>>n>>m>>k;
-    vl a(n);read_vec(a,n);
-    vpii ops(m+2);
-    vl value(m+2);
-    loop(1,m)cin>>ops[i].first>>ops[i].second>>value[i];
-    
-
-    vl opsc(m+2,0);
-    while(k--){
-        ll x,y;
-        cin>>x>>y;
-        opsc[x]++;
-        opsc[y+1]--;
+void solution(){
+    int n;cin>>n;
+    vl a(n);
+    loop(0,n) cin>>a[i];
+    vector<vl> mn(n,vl(n)),mx(n,vl(n));
+    for(int len=1;len<=n;len++){
+         for(int l=0;l+len-1<n;l++){
+          int r=l+len-1;
+         if(len==1){
+             mn[l][r]=a[l];
+             mx[l][r]=a[l];
+      }else{
+              mn[l][r]=LLONG_MAX;
+             mx[l][r]=LLONG_MIN;
+           for(int k=l;k<r;k++){
+                ll v1=mn[l][k]+2*mn[k+1][r];
+             ll v2=mx[l][k]+2*mx[k+1][r];
+              mn[l][r]=min(mn[l][r],v1);
+            mx[l][r]=max(mx[l][r],v2);
+                }
+            }
+        }
     }
-    loop(1,m){
-        opsc[i]+=opsc[i-1];
-    }
-    // main difference array
-    vl diff(n+2,0);
-    loop(1,m){
-        if (opsc[i] == 0) continue;
-        ll l=ops[i].first , r= ops[i].second;
-        diff[l]+=opsc[i]*value[i];
-        diff[r+1]-=opsc[i]*value[i];
-    }
-
-    loop(1,n){
-        diff[i]+=diff[i-1];
-        a[i-1]+=diff[i];
-    }
-    print_vec(a);
+    cout<<mn[0][n-1]<<" "<<mx[0][n-1]<<endl;
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
@@ -97,15 +89,12 @@ int main() {
 
 
 /*              obsevations
-theres use of 2 difference array 
-opscount array helps to count 
-which index how many ops 
 
 
-to find total ops we now aplly the prefix sum 
 
 
-since the template goes till <n i took m+1 to cope 
+
+
 
 
 
