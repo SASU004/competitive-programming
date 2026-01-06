@@ -40,11 +40,6 @@ using namespace std;
 #define pqmax priority_queue<ll>
 #define pqmin priority_queue<ll, vector<ll>, greater<ll>>
 
-#define lb(v,x) (lower_bound(all(v),x) - (v).begin())   // -> first >= x
-#define ub(v,x) (upper_bound(all(v),x) - (v).begin())   // -> first > x
-#define rlb(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
-#define rub(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
-#define cnt_range(v,l,r) (upper_bound(all(v),r) - lower_bound(all(v),l))
 template<typename T>
 void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
@@ -54,9 +49,29 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
+    vl a(n); read_vec(a,n);
+    bool ok=false;
+    loop(0,k){
+        ll x;
+        cin>>x;
+        int l=0;int r=n-1;
+        ok=false;
+        while(r>=l){
+            int mid=(r+l)/2;
+            if(x==a[mid]){
+            ok=true;
+            break;
+            }
+            else if(x>a[mid])l=mid+1;
+            else r=mid-1;
+        }
+          if(ok)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
     
+    }
+  
 }
 
 int main() {
@@ -64,7 +79,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }

@@ -49,10 +49,24 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
+    int n;
     cin>>n;
-    
+
+    vl a(n),b(n);
+    read_vec(a,n);
+    read_vec(b,n);
+
+    ll mx=0,mn=0;
+
+    loop(0,n){
+        ll nmx=max({mx-a[i],b[i]-mx,mn-a[i],b[i]-mn});
+        ll nmn=min({mx-a[i],b[i]-mx,mn-a[i],b[i]-mn});
+        mx=nmx;
+        mn=nmn;
+    }
+    cout<<mx<<endl;
 }
+
 
 int main() {
     ios::sync_with_stdio(false);

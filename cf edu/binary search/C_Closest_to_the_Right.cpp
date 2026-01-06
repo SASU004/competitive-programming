@@ -40,23 +40,27 @@ using namespace std;
 #define pqmax priority_queue<ll>
 #define pqmin priority_queue<ll, vector<ll>, greater<ll>>
 
-#define lb(v,x) (lower_bound(all(v),x) - (v).begin())   // -> first >= x
-#define ub(v,x) (upper_bound(all(v),x) - (v).begin())   // -> first > x
-#define rlb(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
-#define rub(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
-#define cnt_range(v,l,r) (upper_bound(all(v),r) - lower_bound(all(v),l))
 template<typename T>
 void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
     cout << "\n";
 }
 
-
-
 void solution() {
-    int n ;
-    cin>>n;
-    
+    int n,k;
+    cin>>n>>k;
+    vl a(n);read_vec(a,n);
+    loop(0,k){
+        ll x;cin>>x;
+        int l=-1;
+        int r=n;
+        while(r>l+1){
+            int mid=(l+r)/2;
+            if(a[mid]<x)l=mid;
+            else r=mid;
+        }
+        cout<<r+1<<endl;
+    }
 }
 
 int main() {
@@ -64,7 +68,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }

@@ -42,8 +42,8 @@ using namespace std;
 
 #define lb(v,x) (lower_bound(all(v),x) - (v).begin())   // -> first >= x
 #define ub(v,x) (upper_bound(all(v),x) - (v).begin())   // -> first > x
-#define rlb(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
-#define rub(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
+#define rlb_idx(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
+#define rub_idx(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
 #define cnt_range(v,l,r) (upper_bound(all(v),r) - lower_bound(all(v),l))
 template<typename T>
 void print_vec(const vector<T> &v){
@@ -52,10 +52,20 @@ void print_vec(const vector<T> &v){
 }
 
 
-
 void solution() {
     int n ;
     cin>>n;
+    vl a(n); read_vec(a,n);
+    ll k;
+    cin>>k;
+    vl ans;
+    sort(all(a));
+    while(k--){
+        ll l,r;
+        cin>>l>>r;
+        cout<<cnt_range(a,l,r)<<" ";
+    }
+    cout<<endl;
     
 }
 
@@ -64,7 +74,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }
