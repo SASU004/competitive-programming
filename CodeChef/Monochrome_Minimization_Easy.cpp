@@ -40,6 +40,11 @@ using namespace std;
 #define pqmax priority_queue<ll>
 #define pqmin priority_queue<ll, vector<ll>, greater<ll>>
 
+#define lb(v,x) (lower_bound(all(v),x) - (v).begin())   // -> first >= x
+#define ub(v,x) (upper_bound(all(v),x) - (v).begin())   // -> first > x
+#define rlb(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
+#define rub(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
+#define cnt_range(v,l,r) (upper_bound(all(v),r) - lower_bound(all(v),l))
 template<typename T>
 void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
@@ -49,37 +54,39 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    vpll v(n);
-    loop(0,n){
-        cin>>v[i].first>>v[i].second ;
+    int n,m;
+    cin>>n>>m;
+
+    vl x(n),y(m);
+    read_vec(x,n);
+    read_vec(y,m);
+
+    sort(all(x));
+    sort(all(y));
+
+    ll ans=LLONG_MAX;
+
+    loop(0,n-1) {
+        ll dx1=x[i]-x[0];
+        ll dx2=x[n-1]-x[i+1];
+        for (int j=0;j<m-1;j++) {
+            ll dy1=y[j]-y[0];
+            ll dy2=y[m-1]-y[j+1];
+     ll cost1 =max({dx1 * y[j],dy1*x[i],dx2 *y[m-1],dy2* x[n-1]});
+            ll cost2 =max({dx1 * y[m-1],dy2 * x[i],dx2 * y[j],dy1 * x[n-1]});
+            ans =min(ans,min(cost1,cost2));
+        }
     }
-     sort(v.begin(),v.end(),[](auto &a,auto &b){
-        if(a.first!=b.first)return a.first<b.first;
-        return a.second>b.second;
-    });
-    vl lis;
-     loop(0,n){
-        ll b=v[i].second;
-        auto it=lower_bound(lis.begin(),lis.end(),b);
-        if(it==lis.end())lis.push_back(b);
-        else *it=b;
-    }
-    cout<<lis.size()<<endl;
-    
+
+    cout<<ans<<endl;
 }
-    
-
-    
-
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }

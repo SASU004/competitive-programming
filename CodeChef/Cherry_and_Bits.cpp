@@ -40,6 +40,11 @@ using namespace std;
 #define pqmax priority_queue<ll>
 #define pqmin priority_queue<ll, vector<ll>, greater<ll>>
 
+#define lb(v,x) (lower_bound(all(v),x) - (v).begin())   // -> first >= x
+#define ub(v,x) (upper_bound(all(v),x) - (v).begin())   // -> first > x
+#define rlb(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
+#define rub(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
+#define cnt_range(v,l,r) (upper_bound(all(v),r) - lower_bound(all(v),l))
 template<typename T>
 void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
@@ -49,30 +54,47 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    vpll v(n);
+    int n,m;
+    cin>>n>>m;
+    vector<string> a(n);
+    read_vec(a,n);
+ int q;cin>>q;
+  vector<vi> diff(n + 2, vi (m + 2, 0));
+  while(q--){
+    int x1,y1,x2,y2;
+    cin>>x1>>y1>>x2>>y2;
+    //  o based first 
+    x1--;y1--;x2--;y2--;
+    diff[x1][y1]^=1;  
+     diff[x2+1][y1]^=1;
+    diff[x1][y2+1]^=1;
+ 
+    diff[x2+1][y2+1]^=1;
+  }
     loop(0,n){
-        cin>>v[i].first>>v[i].second ;
+        for(int j=0;j<m;j++){
+            if(i>0)diff[i][j]^=diff[ i-1][j];
+            if(j>0)diff[i][j]^=diff[i][j-1];
+            if(i>0&&j>0) diff[i][j]^= diff[i-1][j-1];
+        }
     }
-     sort(v.begin(),v.end(),[](auto &a,auto &b){
-        if(a.first!=b.first)return a.first<b.first;
-        return a.second>b.second;
-    });
-    vl lis;
-     loop(0,n){
-        ll b=v[i].second;
-        auto it=lower_bound(lis.begin(),lis.end(),b);
-        if(it==lis.end())lis.push_back(b);
-        else *it=b;
-    }
-    cout<<lis.size()<<endl;
+           loop(0,n){
+        for(int j=0;j<m;j++){
+            if(diff[i][j]&1){
+               a[i][j] = (a[i][j] =='0'?'1':'0');
+
+            }
+        }
+       
     
+  }
+    
+loop(0,n){
+    cout<<a[i]<<endl;
 }
-    
 
-    
-
+      
+}   
 
 int main() {
     ios::sync_with_stdio(false);
@@ -88,7 +110,6 @@ int main() {
 
 
 /*              obsevations
-
 
 
 

@@ -36,50 +36,37 @@ using namespace std;
 #define read_set(s,n) for(int _i=0,_x; _i<n; _i++){ cin>>_x; s.insert(_x); }
 #define read_mset(ms,n) for(int _i=0,_x; _i<n; _i++){ cin>>_x; ms.insert(_x); }
 
-
 #define pqmax priority_queue<ll>
 #define pqmin priority_queue<ll, vector<ll>, greater<ll>>
 
+#define lb(v,x) (lower_bound(all(v),x) - (v).begin())   // -> first >= x
+#define ub(v,x) (upper_bound(all(v),x) - (v).begin())   // -> first > x
+#define rlb(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
+#define rub(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
+#define cnt_range(v,l,r) (upper_bound(all(v),r) - lower_bound(all(v),l))
 template<typename T>
 void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
     cout << "\n";
 }
 
-
-
 void solution() {
     int n ;
     cin>>n;
-    vpll v(n);
+    vl a(n+1);read_vec(a,n+1);
+    ll ans =LLONG_MAX;
     loop(0,n){
-        cin>>v[i].first>>v[i].second ;
+        ans=min(ans,max(a[i],a[i+1]));
     }
-     sort(v.begin(),v.end(),[](auto &a,auto &b){
-        if(a.first!=b.first)return a.first<b.first;
-        return a.second>b.second;
-    });
-    vl lis;
-     loop(0,n){
-        ll b=v[i].second;
-        auto it=lower_bound(lis.begin(),lis.end(),b);
-        if(it==lis.end())lis.push_back(b);
-        else *it=b;
-    }
-    cout<<lis.size()<<endl;
-    
+    cout<<ans<<endl;
 }
-    
-
-    
-
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
         solution();
     }

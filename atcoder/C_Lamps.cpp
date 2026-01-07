@@ -40,6 +40,11 @@ using namespace std;
 #define pqmax priority_queue<ll>
 #define pqmin priority_queue<ll, vector<ll>, greater<ll>>
 
+#define lb(v,x) (lower_bound(all(v),x) - (v).begin())   // -> first >= x
+#define ub(v,x) (upper_bound(all(v),x) - (v).begin())   // -> first > x
+#define rlb(v,x) (lower_bound(all(v),x) - (v).begin() - 1)   // -> last < x
+#define rub(v,x) (upper_bound(all(v),x) - (v).begin() - 1)   // -> last <= x
+#define cnt_range(v,l,r) (upper_bound(all(v),r) - lower_bound(all(v),l))
 template<typename T>
 void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
@@ -49,30 +54,30 @@ void print_vec(const vector<T> &v){
 
 
 void solution() {
-    int n ;
-    cin>>n;
-    vpll v(n);
+    int n,k;
+    cin>>n>>k;
+    vl a(n);read_vec(a,n);
+
+    while(k--){
+    vl diff(n+2,0);
     loop(0,n){
-        cin>>v[i].first>>v[i].second ;
+        ll l =max(0ll,(ll)i-a[i]);
+        ll r=min((ll)n-1,(ll)i+a[i]);
+        diff[l]++;
+        diff[r+1]--;
+
     }
-     sort(v.begin(),v.end(),[](auto &a,auto &b){
-        if(a.first!=b.first)return a.first<b.first;
-        return a.second>b.second;
-    });
-    vl lis;
-     loop(0,n){
-        ll b=v[i].second;
-        auto it=lower_bound(lis.begin(),lis.end(),b);
-        if(it==lis.end())lis.push_back(b);
-        else *it=b;
+    vl b(n);
+    ll sum=0;
+    loop(0,n){
+        sum+=diff[i];
+        b[i]=sum;
     }
-    cout<<lis.size()<<endl;
-    
+    if(a==b)break;
+    a=b;
 }
-    
-
-    
-
+    print_vec(a);
+}
 
 int main() {
     ios::sync_with_stdio(false);
