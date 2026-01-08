@@ -51,10 +51,33 @@ void print_vec(const vector<T> &v){
     cout << "\n";
 }
 
+
+
 void solution() {
-    int n;
+    int n ;
     cin>>n;
-    
+    vl p(n),pos(n+1);
+    loop(0,n){
+        cin>>p[i];pos[p[i]]=i;
+    }
+    int ans =1;
+    // this first loop gives position of the current elemet 
+    for(int j=1;j<=n;j++){
+        int curr=1;
+        int last = pos[j];
+        // now this inner loop will give the position of the next one 
+        // then compare 
+        for(int k=j+1;k<=n;k++){
+           if( pos[k]>last){
+            curr++;
+            last=pos[k];
+            ans=max(ans,curr);
+           }
+           else break;//increase chain broken here 
+        }
+
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
@@ -64,7 +87,6 @@ int main() {
     int T = 1; 
     cin >> T; // uncomment if multiple test cases
     while (T--) {
-            
         solution();
     }
     return 0;

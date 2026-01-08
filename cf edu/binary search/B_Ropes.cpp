@@ -51,8 +51,10 @@ void print_vec(const vector<T> &v){
     cout << "\n";
 }
 
+
+
 void solution() {
-    int n;
+    int n ;
     cin>>n;
     
 }
@@ -64,7 +66,6 @@ int main() {
     int T = 1; 
     cin >> T; // uncomment if multiple test cases
     while (T--) {
-            
         solution();
     }
     return 0;

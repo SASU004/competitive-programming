@@ -51,9 +51,24 @@ void print_vec(const vector<T> &v){
     cout << "\n";
 }
 
+ll w,h,n;
+bool good(ll x){
+    return(x/w)*(x/h)>=n;
+}
+
 void solution() {
-    int n;
-    cin>>n;
+   cin>>w>>h>>n;
+   ll l=0;
+   ll r=1;
+   while(!good(r))r+=2;
+   while(r>l+1){
+    ll m=(l+r)/2;
+    if(good(m)){
+        r=m;
+    }else l=m;
+    
+   }
+   cout<<r<<endl;
     
 }
 
@@ -62,9 +77,8 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
-            
         solution();
     }
     return 0;

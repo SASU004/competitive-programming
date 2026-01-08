@@ -52,8 +52,10 @@ void print_vec(const vector<T> &v){
 }
 
 void solution() {
-    int n;
-    cin>>n;
+   ll l,r,d,u;
+   cin>>l>>r>>d>>u;
+   if(l==r&&r==d&&d==u)cout<<"YES"<<endl;
+   else cout<<"NO"<<endl;
     
 }
 
