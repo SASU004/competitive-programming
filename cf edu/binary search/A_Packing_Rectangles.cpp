@@ -60,7 +60,7 @@ void solution() {
    cin>>w>>h>>n;
    ll l=0;
    ll r=1;
-   while(!good(r))r+=2;
+   while(!good(r))r*=2;
    while(r>l+1){
     ll m=(l+r)/2;
     if(good(m)){
