@@ -51,32 +51,10 @@ void print_vec(const vector<T> &v){
     cout << "\n";
 }
 
-ll n,k;
-vector<double> a;
-
-bool good(double x) {
-    ll s=0;
-    loop(0,n) {
-        s +=(ll)(a[i]/x);  
-    }
-    return s>= k;
-}
-
-void solution(){
-    cin>>n>>k;
-    a.resize(n);
-   read_vec(a,n);
-
-    double l =0.0, r =0.0;
-    loop(0, n)r =max(r, a[i]);  
-
-    loop(0,100){               
-        double x=(l+r)/2.0;
-        if (good(x))l=x;
-        else r =x;
-    }
-
-    cout<<setprecision(20) <<l<<endl;
+void solution() {
+    int n;
+    cin>>n;
+    
 }
 
 int main() {
@@ -84,8 +62,9 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
+            
         solution();
     }
     return 0;
@@ -110,21 +89,3 @@ int main() {
 
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
