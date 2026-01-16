@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define loop(a,n) for(int i = a; i <n; i++)
+#define loop(a,n) for(int i = a; i < n; i++)
 #define endl '\n'
 
 #define pb push_back
@@ -51,29 +51,20 @@ void print_vec(const vector<T> &v){
     cout << "\n";
 }
 
-ll get_cost(const vector<int>& p){
-    int m=p.size();
-    if(m==0)return 0;
-    ll res=0;
-    int mid=m/2;
-    loop(0,m){
-        res+=abs((p[i]-i)-(p[mid]-mid));
-    }
-    return res;
-}
-
 void solution(){
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    vector<int> pa,pb;
-    loop(0,n){
-        if(s[i]=='a')pa.pb(i);
-        else pb.pb(i);
+    vl a(n);
+    read_vec(a,n);
+    ll g=0,l=1;
+    for(int i=n-1;i>=0;i--){
+        g=__gcd(g,a[i]);
+        ll need=a[i]/g;
+        l=l/__gcd(l,need)*need;
     }
-    cout<<min(get_cost(pa),get_cost(pb))<<endl;
+    cout<<l<<endl;
 }
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -91,23 +82,9 @@ int main() {
 
 /*              obsevations
 
-learning distance approach for this 
-values not needed 
-record positions p[i]
-now shift is og position - final/target position 
-that logically means summation of p[i]-(l+i)
-l here is nothing but a start point 
-can be anything tbh 
-thats the main shifting value 
-this reduces to p[i]-i-l
-p = [2, 4, 5]
-i = [0, 1, 2]
-
-b[i] = p[i] - i
-b = [2, 3, 3]
 
 
-l here comes to be the median 
+
 
 
 
