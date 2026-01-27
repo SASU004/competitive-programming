@@ -50,13 +50,43 @@ void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
     cout << "\n";
 }
-/*              obsevations
 
 
-*/
+ll n,t;
+vl a;
+int check (ll mid){
+    ll sub=0,remain=0;
+    loop(0,n){
+     if(remain>=a[i])remain-=a[i];
+     else {
+        sub++;
+        if(sub>t)return 0;
+        remain=mid;
+        if(remain>=a[i])remain-=a[i];  
+        else return 0;
+    }
+
+} return 1;
+}
 void solution() {
-    int n;
-    cin>>n;
+  cin>>n>>t;
+  ll sum=0;
+    a.resize(n);
+    loop(0,n){
+        cin>>a[i];
+        sum+=a[i];
+    }
+    ll hi=sum,lo=0,ans=-1;
+    while(lo<=hi){
+        ll mid=(lo+hi)/2;
+        if(check(mid)== 1){
+            ans=mid;
+            hi=mid-1;
+        }
+        else lo=mid+1;
+    }
+
+cout<<ans<<endl;
     
 }
 
@@ -65,7 +95,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
             
         solution();
@@ -74,4 +104,21 @@ int main() {
 }
 
 
+/*              obsevations
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

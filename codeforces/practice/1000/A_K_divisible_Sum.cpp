@@ -52,7 +52,7 @@ void print_vec(const vector<T> &v){
 }
 
 void solution() {
-    int n,k;
+    ll n,k;
     cin>>n>>k;
     ll g=(k+n-1)/k;
     k*=g;

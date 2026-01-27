@@ -51,12 +51,32 @@ void print_vec(const vector<T> &v){
     cout << "\n";
 }
 /*              obsevations
-
+  now i am working for mid days right i can do 2 tasks at max right 
+     this gives like either i am completing 2*mid task or all the tasks min obv cause 2* d will mostly be bigger 
 
 */
+ int check(ll mid, ll task, ll taskp, ll lessonp, ll points){
+   ll done = min(task,2*mid);
+   ll total= 1LL*done*taskp+1LL*lessonp*mid;
+   return total >=points; 
+
+ }
 void solution() {
-    int n;
-    cin>>n;
+    ll n ,points,lessonp,taskp;
+    cin>>n>>points>>lessonp>>taskp;
+    ll rest=0;
+    ll task = (n+7-1)/7;
+
+    ll lo=0,hi=n,ans=n;
+    while(lo<=hi){
+        ll mid=(lo+hi)/2;
+        if(check(mid, task, taskp, lessonp, points)){
+            ans=mid;
+            hi=mid-1;
+        }
+        else lo=mid+1;
+    }
+    cout<<n-ans<<endl;
     
 }
 

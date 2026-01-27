@@ -50,13 +50,34 @@ void print_vec(const vector<T> &v){
     for(auto &x : v) cout << x << " ";
     cout << "\n";
 }
-/*              obsevations
 
 
-*/
+ll n,t;
+vl a;
+int check (ll mid){
+    ll products=0;
+    loop(0,n){
+     products+=mid/a[i];
+     if(products>=t)return 1;
+    }
+ return 0;
+}
+
 void solution() {
-    int n;
-    cin>>n;
+  cin>>n>>t;
+    a.resize(n);
+    read_vec(a,n);
+    ll lo=0,hi=*min_element(all(a))*t,ans=-1;
+    while(lo<=hi){
+        ll mid=(lo+hi)/2;
+        if(check(mid)== 1){
+            ans=mid;
+            hi=mid-1;
+        }
+        else lo=mid+1;
+    }
+
+cout<<ans<<endl;
     
 }
 
@@ -65,7 +86,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
             
         solution();
@@ -74,4 +95,21 @@ int main() {
 }
 
 
+/*              obsevations
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
