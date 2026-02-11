@@ -54,10 +54,38 @@ void print_vec(const vector<T> &v){
 
 
 */
+
+ll n,k;
+vl a;vl b;
+bool check (ll  x){
+    ll total =0;
+    loop(0,n){
+       ll need=a[i]*x;
+        if(need>b[i]){
+            total+=need-b[i];
+        }
+    }
+    return total<=k;
+}
 void solution() {
-    int n;
-    cin>>n;
-    
+    cin>>n>>k;
+    a.resize(n);
+    b.resize(n);
+    read_vec(a,n);
+    read_vec(b,n);
+
+
+    ll l=0,r=2000,ans=0;
+
+    while(l<=r){
+        ll mid= (l+r)/2;
+        if(check(mid)){
+            ans=mid;
+            l=mid+1;
+        }
+        else r=mid-1;
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
@@ -65,7 +93,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    cin >> T; // uncomment if multiple test cases
+    // cin >> T; // uncomment if multiple test cases
     while (T--) {
             
         solution();
