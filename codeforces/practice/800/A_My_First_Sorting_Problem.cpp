@@ -51,33 +51,13 @@ void print_vec(const vector<T> &v){
     cout << "\n";
 }
 /*              obsevations
-this is an ai solution i could not solve this myself 
-i want to do this in bs 
-got this logic tho but couldnt execute 
 
-need to study this solution 
+
 */
-void solution(){
-    ll k;
-    cin>>k;
-    string s;
-    cin>>s;
-
-    int n=s.size();
-    vl cnt(n+1,0);
-
-    ll sum=0;
-    ll ans=0;
-
-    cnt[0]=1;
-
-    for(int i=0;i<n;i++){
-        sum+=(s[i]-'0');
-        if(sum>=k)
-            ans+=cnt[sum-k];
-        cnt[sum]++;
-    }
-    cout<<ans<<endl;
+void solution() {
+    ll x,y;cin>>x>>y;
+    cout<<min(x,y)<<" "<<max(x,y)<<endl;
+    
 }
 
 int main() {
@@ -85,7 +65,7 @@ int main() {
     cin.tie(nullptr);
 
     int T = 1; 
-    // cin >> T; // uncomment if multiple test cases
+    cin >> T; // uncomment if multiple test cases
     while (T--) {
             
         solution();
